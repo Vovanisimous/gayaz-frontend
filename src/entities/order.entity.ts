@@ -10,7 +10,7 @@ export interface IOrder {
     dealer: IDealer;
     manager: IManager;
     contract: IContract;
-    receipts: IReceipt[];
+    receipts: (IReceipt | undefined)[];
     createdAt: Date;
     updatedAt: Date;
 }
@@ -19,5 +19,5 @@ export interface IOrderRequestData {
     dealerId: string;
     managerId: string;
     contractId: string;
-    receipts: IReceipt[];
+    receipts: (IReceipt | undefined)[];
 }

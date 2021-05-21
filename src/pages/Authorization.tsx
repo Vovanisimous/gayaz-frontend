@@ -40,19 +40,27 @@ export const Authorization = () => {
     const auth = useAuth();
 
     const onLogin = async () => {
-        await auth.onLogin(username, password).then((response) => {
-            setUsername("");
-            setPassword("");
-            auth.onAuthorization()
-                .then(() => {
-                    if (context.user?.role.id == "45c68ea3-b69c-40d5-90cc-e1f7fe7cc017") {
-                        history.push('/analysis')
-                    }else {
-                        history.push("/main")
-                    }
-                })
-        }).catch((e) => {
-            Error(e)
+        // await auth.onLogin(username, password).then((response) => {
+        //     setUsername("");
+        //     setPassword("");
+        //     auth.onAuthorization()
+        //         .then(() => {
+        //             if (context.user?.role.id == "45c68ea3-b69c-40d5-90cc-e1f7fe7cc017") {
+        //                 history.push('/analysis')
+        //             }else {
+        //                 history.push("/main")
+        //             }
+        //         })
+        // }).catch((e) => {
+        //     Error(e)
+        // })
+
+        await auth.onAuthorization(username, password).then(() => {
+            if (context.user?.role.id == "45c68ea3-b69c-40d5-90cc-e1f7fe7cc017") {
+                history.push('/analysis')
+            }else {
+                history.push("/main")
+            }
         })
     }
 

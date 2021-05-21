@@ -29,6 +29,7 @@ export const ExpandCard = (order: IOrder) => {
     const handleExpandClick = () => {
         setOrderExpanded(!orderExpanded);
     }
+    console.log(order)
 
     return (
         <Card className={classes.card} key={order.id}>
@@ -51,8 +52,8 @@ export const ExpandCard = (order: IOrder) => {
                 <Typography>Должность менеджера: {order.manager.position}</Typography>
                 <Typography>Дата заказа: {order.order_date}</Typography>
                 <ol>
-                    {order.receipts.map((receipt) => (
-                        <li key={receipt.id}>{receipt.product.name}</li>
+                    {order.receipts.map((receipt: any) => (
+                        <li key={receipt.id}>{receipt.product.name} {receipt.amount}</li>
                     ))}
                 </ol>
             </Collapse>

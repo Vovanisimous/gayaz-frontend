@@ -17,12 +17,12 @@ import {
 import { useOrder } from "../hooks/useOrder";
 import { useProduct } from "../hooks/useProduct";
 import { useDealer } from "../hooks/useDealer";
-import { useManager } from "../hooks/useManager";
 import { AppContext } from "../app/App";
 import { useContract } from "../hooks/useContract";
 import { IProduct } from "../entities/product.entity";
 import { useReceipt } from "../hooks/useReceipt";
 import { useHistory } from "react-router";
+import {IContract} from "../entities/contract.entity";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -121,7 +121,7 @@ export const CreateOrder = () => {
 
     const contractId = await contractHook
       .createContract({ contract_link: contractLink })
-      .then((result) => result.id);
+      .then((result: any) => result.id);
 
     const receipts = await receiptHook.createReceipt(orderValues)
 

@@ -85,7 +85,7 @@ export const CreateUser = () => {
             password: password,
             roleId: "e688014e-ef4c-4df9-a2e6-8277200936e1",
           })
-          .then((user) =>
+          .then((user: any) =>
             dealerHook
               .createDealer({
                 name: dealerName,
@@ -107,7 +107,7 @@ export const CreateUser = () => {
             password: password,
             roleId: "e4493c81-51f5-4501-9bc8-32aaa4725d83",
           })
-          .then((user) =>
+          .then((user: any) =>
             managerHook
               .createManager({
                 name: managerName,

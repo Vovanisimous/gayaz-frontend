@@ -15,7 +15,7 @@ import {CreateOrder} from "../pages/CreateOrder";
 import {Products} from "../pages/Products";
 import {Analysis} from "../pages/Analysis";
 
-transport.init('http://localhost:3000/')
+// transport.init('http://localhost:3000/')
 
 export const AppContext = createContext<IAppContext>({
   auth: false,
@@ -33,22 +33,22 @@ function App() {
   const [user, setUser] = useState<IUser | undefined>(undefined)
 
 
-  useEffect(() => {
-    const userToken = localStorage.getItem('token');
-    if (!userToken) {
-      setAuth(false);
-      setUser(undefined)
-    } else {
-      transport.get<{userId: string, username: string}>('profile').then((userInstance) => {
-        transport.get<IUser>(`user/${userInstance.username}`).then((user) => {
-          if(user) {
-            setUser(user)
-            setAuth(true)
-          }
-        })
-      })
-    }
-  }, [])
+  // useEffect(() => {
+  //   const userToken = localStorage.getItem('token');
+  //   if (!userToken) {
+  //     setAuth(false);
+  //     setUser(undefined)
+  //   } else {
+  //     transport.get<{userId: string, username: string}>('profile').then((userInstance) => {
+  //       transport.get<IUser>(`user/${userInstance.username}`).then((user) => {
+  //         if(user) {
+  //           setUser(user)
+  //           setAuth(true)
+  //         }
+  //       })
+  //     })
+  //   }
+  // }, [])
 
   return (
     <AppContext.Provider value={{auth, user, setAuth, setUser}}>

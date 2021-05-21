@@ -4,7 +4,7 @@ import {IProduct} from "./product.entity";
 export interface IReceipt {
     id: string;
     amount: number;
-    order: IOrder;
+    order: IOrder | undefined;
     product: IProduct;
     createdAt: Date;
     updatedAt: Date;
